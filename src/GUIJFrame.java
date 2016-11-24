@@ -114,7 +114,7 @@ public class GUIJFrame extends javax.swing.JFrame {
         int n = Integer.parseInt(numOfObjectsInput.getText());
         int numOfWays = sort(n,r);
         
-        outputLabel.setText(numOfWays+"");
+        outputLabel.setText("There are "+numOfWays+" ways!");
         
     }//GEN-LAST:event_calculateButtonActionPerformed
 
@@ -166,10 +166,19 @@ public class GUIJFrame extends javax.swing.JFrame {
 
 public static int sort(int n, int r){
     int num = 0;
+    int numOfObj = factorial(n);
+    int numOfChosen = factorial(r);
+    int numObjLessChosen = factorial(n-r);
     
-    
-    
+    num = numOfObj/(numOfChosen*numObjLessChosen);
     return(num);
 }
 
+public static int factorial(int n){
+    int fact=1;
+    for(int i=1; i<=n;i++){
+        fact = fact*i;
+    }
+    return fact;
+}
 }
